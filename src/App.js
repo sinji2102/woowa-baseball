@@ -19,6 +19,7 @@ class App {
         MissionUtils.Console.print("3 스트라이크");
         MissionUtils.Console.print("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
         const restartAnswer = await askRestart();
+        MissionUtils.Console.print(typeof restartAnswer);
         if (restartAnswer === "1") {
           return this.play(); // 게임 재시작
         } else if (restartAnswer === "2") {
@@ -27,12 +28,12 @@ class App {
         } else {
           throw new Error("잘못된 입력입니다. 게임이 종료됩니다.");
         }
+      } else if (STRIKE !== 0 && BALL !== 0) {
+        MESSAGE = `${BALL} 볼, ${STRIKE} 스트라이크`;
       } else if (STRIKE !== 0) {
         MESSAGE = `${STRIKE} 스트라이크`;
       } else if (BALL !== 0) {
         MESSAGE = `${BALL} 볼`;
-      } else if (STRIKE !== 0 && BALL !== 0) {
-        MESSAGE = `${BALL} 볼, ${STRIKE} 스트라이크`;
       }
       MissionUtils.Console.print(`${MESSAGE}`);
     }
