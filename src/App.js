@@ -19,8 +19,10 @@ class App {
         MissionUtils.Console.print("3 스트라이크");
         MissionUtils.Console.print("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
         const restartAnswer = await askRestart();
-        if (restartAnswer === true ){
+        if (restartAnswer === true) {
           return this.play(); // 게임 재시작
+        } else {
+          break;
         }
       } else if (STRIKE !== 0 && BALL !== 0) {
         MESSAGE = `${BALL} 볼, ${STRIKE} 스트라이크`;

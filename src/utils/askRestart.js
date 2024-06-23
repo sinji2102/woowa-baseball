@@ -8,10 +8,11 @@ async function askRestart() {
   );
 
   if (restartAnswer === "1") {
-    return true
+    return true;
   } else if (restartAnswer === "2") {
     MissionUtils.Console.print("게임이 종료됩니다.");
-    throw new Error("게임이 종료됩니다.");
+    // throw new Error("게임이 종료됩니다.");
+    return false;
   } else {
     throw new Error("잘못된 입력입니다. 게임이 종료됩니다.");
   }
